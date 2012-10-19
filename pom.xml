@@ -29,7 +29,7 @@
     </scm>
 
     <properties>
-        <spring.framework.version>3.0.2.RELEASE</spring.framework.version>
+        <spring.framework.version>3.1.2.RELEASE</spring.framework.version>
         <log4j.version>1.2.16</log4j.version>
         <application.release.name>gameaday</application.release.name>    
     </properties>
@@ -64,17 +64,17 @@
         <dependency>
             <groupId>org.restlet.jee</groupId>
             <artifactId>org.restlet</artifactId>
-            <version>2.0.15</version>
+            <version>2.1.0</version>
         </dependency>
         <dependency>
             <groupId>org.restlet.jee</groupId>
             <artifactId>org.restlet.ext.servlet</artifactId>
-            <version>2.0.15</version>
+            <version>2.1.0</version>
         </dependency>
         <dependency>
             <groupId>org.restlet.jee</groupId>
             <artifactId>org.restlet.ext.spring</artifactId>
-            <version>2.0.15</version>
+            <version>2.1.0</version>
         </dependency>
 
        <!-- Logging -->
