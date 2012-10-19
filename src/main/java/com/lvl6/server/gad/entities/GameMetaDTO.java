@@ -5,6 +5,7 @@ public class GameMetaDTO {
     private String gameId;
     private String gameTitle;
     private double dateFree;
+    
     public String getGameId() {
         return gameId;
     }

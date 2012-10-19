@@ -20,9 +20,44 @@
     <bean id="root" class="org.restlet.ext.spring.SpringRouter">
         <property name="attachments">
             <map>
+                <entry key="/getGameData">
+                    <bean class="org.restlet.ext.spring.SpringFinder">
+                        <lookup-method name="create" bean="getGameData"/>
+                    </bean>
+                </entry>
                 <entry key="/getGameList">
                     <bean class="org.restlet.ext.spring.SpringFinder">
                         <lookup-method name="create" bean="getGameList"/>
+                    </bean>
+                </entry>
+                <entry key="/getUserId">
+                    <bean class="org.restlet.ext.spring.SpringFinder">
+                        <lookup-method name="create" bean="getUserId"/>
+                    </bean>
+                </entry>
+                <entry key="/setEmail">
+                    <bean class="org.restlet.ext.spring.SpringFinder">
+                        <lookup-method name="create" bean="setEmail"/>
+                    </bean>
+                </entry>
+                <entry key="/setGameReview">
+                    <bean class="org.restlet.ext.spring.SpringFinder">
+                        <lookup-method name="create" bean="setGameReview"/>
+                    </bean>
+                </entry>
+                <entry key="/setImpression">
+                    <bean class="org.restlet.ext.spring.SpringFinder">
+                        <lookup-method name="create" bean="setImpression"/>
+                    </bean>
+                </entry>
+                <entry key="/setPushNotification">
+                    <bean class="org.restlet.ext.spring.SpringFinder">
+                        <lookup-method name="create" bean="setPushNotification"/>
+                    </bean>
+                </entry>
+                <entry key="/track">
+                    <bean class="org.restlet.ext.spring.SpringFinder">
+                        <lookup-method name="create" bean="track"/>
                     </bean>
                 </entry>
             </map>
@@ -49,7 +84,28 @@
 
 
     <!-- RESTlet resources -->
+    <bean id="getGameData" class="com.lvl6.server.gad.rest.resource.GetGameData">
+    </bean>
+
     <bean id="getGameList" class="com.lvl6.server.gad.rest.resource.GetGameList">
+    </bean>
+
+    <bean id="getUserId" class="com.lvl6.server.gad.rest.resource.GetUserId">
+    </bean>
+
+    <bean id="setEmail" class="com.lvl6.server.gad.rest.resource.SetEmail">
+    </bean>
+
+    <bean id="setGameReview" class="com.lvl6.server.gad.rest.resource.SetGameReview">
+    </bean>
+
+    <bean id="setImpression" class="com.lvl6.server.gad.rest.resource.SetImpression">
+    </bean>
+
+    <bean id="setPushNotification" class="com.lvl6.server.gad.rest.resource.SetPushNotification">
+    </bean>
+
+    <bean id="track" class="com.lvl6.server.gad.rest.resource.Track">
     </bean>
 
 </beans>
