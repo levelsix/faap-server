@@ -14,6 +14,7 @@ public class GameDataDTO {
     private float ratingGameplay;
     private float ratingSound;
     private float ratingStory;
+    
     public String getGameId() {
         return gameId;
     }

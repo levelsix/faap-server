@@ -31,7 +31,11 @@ public class SetImpression extends BaseServerResource {
     @Get
     public String setImpression() throws Exception {
         
-        return "itms://itunes.com/apps/age-of-chaos";
+        System.out.println("Impression IMPRS" + gameId + " " + userId);
+        
+        gameFacade.setImpression(userId, gameId);
+        
+        return "itms://itunes.com/apps/" + gameId;
     }
     
 }

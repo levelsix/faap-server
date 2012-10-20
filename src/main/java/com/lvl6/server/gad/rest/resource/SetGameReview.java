@@ -37,7 +37,7 @@ public class SetGameReview extends BaseServerResource {
 
     @Get
     public String setGameReview() throws Exception {
-        
+        gameFacade.setRating(userId, gameId, rating);
         return "0";
     }
     

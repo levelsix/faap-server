@@ -30,8 +30,12 @@ public class SetPushNotification extends BaseServerResource {
 
     @Get
     public String setPushNotification() throws Exception {
+        boolean success = userFacade.updateDeviceToken(userId, deviceToken);
         
-        return "0";
+        if (success)
+            return "0";
+        
+        return "1";
     }
     
 }

@@ -39,8 +39,25 @@ public class Track extends BaseServerResource {
     @Get
     public String track() throws Exception {
         
-        System.out.println("Track called for gameId:"+gameId+" odin1:"+odin1+" openUdid:"+openUdid+" macAddress:"+macAddress);
+        System.out.println("Track RCVD gameId:"+gameId+" odin1:"+odin1+" openUdid:"+openUdid+" macAddress:"+macAddress);
+        String userId = null;
         
+        if (macAddress != null)
+            userId = userFacade.getUserByMacAddress(macAddress);
+        
+        if (userId == null && odin1 != null)
+            userId = userFacade.getUserByOdin1(odin1);
+        
+
+        if (userId == null && openUdid != null)
+            userId = userFacade.getUserByOpenUdid(openUdid);
+
+        if (userId != null) {
+            gameFacade.track(userId, gameId);
+            System.out.println("Track TRACK " + gameId + " " + userId);
+        } else {
+            System.out.println("Track NOUSR" + gameId);
+        }
         return "0";
     }
     

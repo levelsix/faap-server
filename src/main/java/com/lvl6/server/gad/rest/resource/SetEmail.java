@@ -31,7 +31,12 @@ public class SetEmail extends BaseServerResource {
     @Get
     public String setEmail() throws Exception {
         
-        return "0";
+        boolean success = userFacade.updateEmail(userId, email);
+        
+        if (success)
+            return "0";
+        
+        return "1";
     }
     
 }

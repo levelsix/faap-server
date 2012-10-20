@@ -6,6 +6,7 @@ import org.restlet.data.Form;
 import org.restlet.data.Status;
 import org.restlet.resource.ServerResource;
 
+import com.lvl6.server.gad.facade.GameFacade;
 import com.lvl6.server.gad.facade.UserFacade;
 
 public class BaseServerResource extends ServerResource {
@@ -13,6 +14,7 @@ public class BaseServerResource extends ServerResource {
     private String secretKey;
     protected Map<String, String> incoming;
     protected UserFacade userFacade;
+    protected GameFacade gameFacade;
     
     @Override
     public void doInit() {
@@ -33,5 +35,9 @@ public class BaseServerResource extends ServerResource {
         this.userFacade = userFacade;
     }
 
+
+    public void setGameFacade(GameFacade gameFacade) {
+        this.gameFacade = gameFacade;
+    }
 
 }

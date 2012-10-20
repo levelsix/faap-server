@@ -1,6 +1,7 @@
 package com.lvl6.server.gad.rest.resource;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 import org.svenson.JSON;
 
@@ -34,26 +35,14 @@ public class GetGameList extends BaseServerResource {
     @Get
     public String getGameList() throws Exception {
         
-        ArrayList<GameMetaDTO> games = new ArrayList<GameMetaDTO>();
+        // TODO: figure out how to sync on timezone, etc..  For now, just
+        // rely on the server..
         
-        GameMetaDTO test1 = new GameMetaDTO();
-        test1.setDateFree(System.currentTimeMillis()/1000 - 86400);
-        test1.setGameId("g1");
-        test1.setGameTitle("Age of Chaos");
-        games.add(test1);
-
-        GameMetaDTO test2 = new GameMetaDTO();
-        test2.setDateFree(System.currentTimeMillis()/1000);
-        test2.setGameId("g2");
-        test2.setGameTitle("Ninja Army");
-        games.add(test2);
-
-        GameMetaDTO test3 = new GameMetaDTO();
-        test3.setDateFree(System.currentTimeMillis()/1000 + 86400);
-        test3.setGameId("g3");
-        test3.setGameTitle("Angry Birds");
-        games.add(test3);
-
+        Date yesterday = new Date(System.currentTimeMillis()-86400000);
+        Date tomorrow = new Date(System.currentTimeMillis()+86400000);
+        
+        ArrayList<GameMetaDTO> games = gameFacade.getGameList(yesterday, tomorrow);
+        
         return JSON.defaultJSON().forValue(games);
     }
     

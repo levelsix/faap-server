@@ -23,10 +23,23 @@
         <property name="dataSource" ref="dataSource" />
     </bean>
 
+    <bean id="trackingDAO" class="com.lvl6.server.gad.db.TrackingDAO">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+
+    <bean id="gameDAO" class="com.lvl6.server.gad.db.GameDAO">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+
     <!-- Facades -->
 
     <bean id="userFacade" class="com.lvl6.server.gad.facade.UserFacade">
         <property name="userDAO" ref="userDAO" />
+    </bean> 
+
+    <bean id="gameFacade" class="com.lvl6.server.gad.facade.GameFacade">
+        <property name="gameDAO" ref="gameDAO" />
+        <property name="trackingDAO" ref="trackingDAO" />
     </bean> 
 
     <!-- REST entry points -->
@@ -74,6 +87,12 @@
                         <lookup-method name="create" bean="track"/>
                     </bean>
                 </entry>
+
+                <entry key="/adminAddGame">
+                    <bean class="org.restlet.ext.spring.SpringFinder">
+                        <lookup-method name="create" bean="adminAddGame"/>
+                    </bean>
+                </entry>
             </map>
         </property>
     </bean>
@@ -100,34 +119,48 @@
     <!-- RESTlet resources -->
     <bean id="getGameData" class="com.lvl6.server.gad.rest.resource.GetGameData">
         <property name="userFacade" ref="userFacade" />
+        <property name="gameFacade" ref="gameFacade" />
     </bean>
 
     <bean id="getGameList" class="com.lvl6.server.gad.rest.resource.GetGameList">
         <property name="userFacade" ref="userFacade" />
+        <property name="gameFacade" ref="gameFacade" />
     </bean>
 
     <bean id="getUserId" class="com.lvl6.server.gad.rest.resource.GetUserId">
         <property name="userFacade" ref="userFacade" />
+        <property name="gameFacade" ref="gameFacade" />
     </bean>
 
     <bean id="setEmail" class="com.lvl6.server.gad.rest.resource.SetEmail">
         <property name="userFacade" ref="userFacade" />
+        <property name="gameFacade" ref="gameFacade" />
     </bean>
 
     <bean id="setGameReview" class="com.lvl6.server.gad.rest.resource.SetGameReview">
         <property name="userFacade" ref="userFacade" />
+        <property name="gameFacade" ref="gameFacade" />
     </bean>
 
     <bean id="setImpression" class="com.lvl6.server.gad.rest.resource.SetImpression">
         <property name="userFacade" ref="userFacade" />
+        <property name="gameFacade" ref="gameFacade" />
     </bean>
 
     <bean id="setPushNotification" class="com.lvl6.server.gad.rest.resource.SetPushNotification">
         <property name="userFacade" ref="userFacade" />
+        <property name="gameFacade" ref="gameFacade" />
     </bean>
 
     <bean id="track" class="com.lvl6.server.gad.rest.resource.Track">
         <property name="userFacade" ref="userFacade" />
+        <property name="gameFacade" ref="gameFacade" />
+    </bean>
+
+    <!-- admin stuff -->
+    <bean id="adminAddGame" class="com.lvl6.server.gad.rest.resource.AdminAddGame">
+        <property name="userFacade" ref="userFacade" />
+        <property name="gameFacade" ref="gameFacade" />
     </bean>
 
 </beans>
