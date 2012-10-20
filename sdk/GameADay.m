@@ -90,7 +90,7 @@
     GameADay *g = [[GameADay alloc] init];
     
     NSString *macAddress = [self getMacAddress];
-    NSString *urlString = [NSString stringWithFormat:@"https://www.getgameaday.com/gameaday/api/track?gameId=%@&macAddress=%@", GAMEADAY_GAMEID, macAddress];
+    NSString *urlString = [NSString stringWithFormat:@"https://www.getgameaday.com/api/track?gameId=%@&macAddress=%@", GAMEADAY_GAMEID, macAddress];
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:urlString]];
     NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:g];
     
