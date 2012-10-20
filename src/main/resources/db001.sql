@@ -5,6 +5,8 @@ CREATE TABLE `user_id` (
   `macAddress` varchar(100) NOT NULL,
   `odin1` varchar(100) NOT NULL,
   `openUdid` varchar(100) NOT NULL,
+  `email` varchar(100),
+  `deviceToken` varchar(100),
    PRIMARY KEY (`user_id`)
 ) ENGINE=MyISam DEFAULT CHARSET=utf8;
 
