@@ -40,6 +40,7 @@ public class GameDAO extends DAO {
                 gameData.setRatingGameplay(rs.getFloat("rating_gameplay"));
                 gameData.setRatingSound(rs.getFloat("rating_sound"));
                 gameData.setRatingStory(rs.getFloat("rating_story"));
+                gameData.setImageCount(rs.getInt("image_count"));
             }
         
         } catch (SQLException e) {

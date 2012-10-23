@@ -32,6 +32,7 @@ CREATE TABLE `games` (
   `rating_gameplay` decimal(3,1) NOT NULL,
   `rating_sound` decimal(3,1) NOT NULL,
   `rating_story` decimal(3,1) NOT NULL,
+  `image_count` int NOT NULL,
    PRIMARY KEY (`game_id`)
 ) ENGINE=MyISam DEFAULT CHARSET=utf8;
 
@@ -75,6 +76,6 @@ CREATE INDEX `idx_tracking_gamesusers` ON `ratings` (game_id, user_id);
 
 ## start data;
 
-INSERT INTO `games` VALUES ('ageofchaos','Age of Chaos',12342,'Greatest game ever','You should all play this game!','Stellar Fun','$1.99',9.5,8.5,9.0,9.5,9.5);
+INSERT INTO `games` VALUES ('ageofchaos','Age of Chaos',12342,'Greatest game ever','You should all play this game!','Stellar Fun','$1.99',9.5,8.5,9.0,9.5,9.5,3);
 
 INSERT INTO `calendar` VALUES ('ageofchaos','2012-10-20'),('ageofchaos','2012-10-21'),('ageofchaos','2012-10-19'),('ageofchaos','2012-10-22'),('ageofchaos','2012-10-23'),('ageofchaos','2012-10-24'),('ageofchaos','2012-10-25'),('ageofchaos','2012-10-26'),('ageofchaos','2012-10-27'),('ageofchaos','2012-10-28'),('ageofchaos','2012-10-29'),('ageofchaos','2012-10-30'),('ageofchaos','2012-10-31');
