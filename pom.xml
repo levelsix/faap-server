@@ -31,8 +31,13 @@
     <properties>
         <spring.framework.version>3.1.2.RELEASE</spring.framework.version>
         <log4j.version>1.2.16</log4j.version>
-        <application.release.name>gameaday</application.release.name>    
+        <application.release.name>gameaday</application.release.name>
+        <jdbc.driverClassName>com.mysql.jdbc.Driver</jdbc.driverClassName>
+        <jdbc.url>jdbc:mysql://faap-server.cv5kxrel3z7x.us-east-1.rds.amazonaws.com:3306/gameaday</jdbc.url>
+        <jdbc.username>lvl6admin</jdbc.username>
+        <jdbc.password>faapserver</jdbc.password>    
     </properties>
+
 
     <repositories>
         <repository>
