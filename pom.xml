@@ -247,7 +247,7 @@
                         <optionSetting>
                             <namespace>aws:autoscaling:trigger</namespace>
                             <optionName>LowerThreshold</optionName>
-                            <value>4000000</value>
+                            <value>2000000</value>
                         </optionSetting>
                         <optionSetting>
                             <namespace>aws:elb:loadbalancer</namespace>
