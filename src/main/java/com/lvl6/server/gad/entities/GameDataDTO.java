@@ -14,6 +14,8 @@ public class GameDataDTO {
     private float ratingGameplay;
     private float ratingSound;
     private float ratingStory;
+    private float ratingReplay;
+    
     private int imageCount;
     
     public String getGameId() {
@@ -99,6 +101,12 @@ public class GameDataDTO {
     }
     public void setImageCount(int imageCount) {
         this.imageCount = imageCount;
+    }
+    public float getRatingReplay() {
+        return ratingReplay;
+    }
+    public void setRatingReplay(float ratingReplay) {
+        this.ratingReplay = ratingReplay;
     }
     
     

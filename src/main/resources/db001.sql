@@ -1,6 +1,8 @@
 CREATE DATABASE gameaday;
 
-DROP TABLE `user_id`;
+USE DATABASE gameaday;
+
+DROP TABLE IF EXISTS `user_id`;
 
 CREATE TABLE `user_id` (
   `user_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -17,7 +19,7 @@ CREATE UNIQUE INDEX `id_uid_odin` ON `user_id` (odin1);
 CREATE UNIQUE INDEX `id_uid_udid` ON `user_id` (open_udid);
 
 
-DROP TABLE `games`;
+DROP TABLE IF EXISTS `games`;
 
 CREATE TABLE `games` (
   `game_id` varchar(100) NOT NULL,
@@ -30,6 +32,7 @@ CREATE TABLE `games` (
   `rating_artwork` decimal(3,1) NOT NULL,
   `rating_fun` decimal(3,1) NOT NULL,
   `rating_gameplay` decimal(3,1) NOT NULL,
+  `rating_replay` decimal(3,1) NOT NULL,
   `rating_sound` decimal(3,1) NOT NULL,
   `rating_story` decimal(3,1) NOT NULL,
   `image_count` int NOT NULL,
@@ -37,7 +40,7 @@ CREATE TABLE `games` (
 ) ENGINE=MyISam DEFAULT CHARSET=utf8;
 
 
-DROP TABLE `calendar`;
+DROP TABLE IF EXISTS `calendar`;
 
 CREATE TABLE `calendar` (
   `game_id` varchar(100) NOT NULL,
@@ -47,7 +50,7 @@ CREATE TABLE `calendar` (
 
 CREATE INDEX `idx_cal_games` ON `calendar` (game_id);
 
-DROP TABLE `ratings`;
+DROP TABLE IF EXISTS `ratings`;
 
 CREATE TABLE `ratings` (
   `game_id` varchar(100) NOT NULL,
@@ -58,7 +61,7 @@ CREATE TABLE `ratings` (
 
 CREATE INDEX `idx_rating_games` ON `ratings` (game_id);
 
-DROP TABLE `tracking`;
+DROP TABLE IF EXISTS `tracking`;
 
 CREATE TABLE `tracking` (
   `user_id` int NOT NULL,
@@ -76,6 +79,6 @@ CREATE INDEX `idx_tracking_gamesusers` ON `ratings` (game_id, user_id);
 
 ## start data;
 
-INSERT INTO `games` VALUES ('ageofchaos','Age of Chaos',12342,'Greatest game ever','You should all play this game!','Stellar Fun','$1.99',9.5,8.5,9.0,9.5,9.5,3);
+INSERT INTO `games` VALUES ('ageofchaos','Age of Chaos',12342,'Greatest game ever','You should all play this game!','Stellar Fun','$1.99',9.5,8.5,9.0,9.0,9.5,9.5,3);
 
 INSERT INTO `calendar` VALUES ('ageofchaos','2012-10-20'),('ageofchaos','2012-10-21'),('ageofchaos','2012-10-19'),('ageofchaos','2012-10-22'),('ageofchaos','2012-10-23'),('ageofchaos','2012-10-24'),('ageofchaos','2012-10-25'),('ageofchaos','2012-10-26'),('ageofchaos','2012-10-27'),('ageofchaos','2012-10-28'),('ageofchaos','2012-10-29'),('ageofchaos','2012-10-30'),('ageofchaos','2012-10-31');

@@ -45,7 +45,7 @@ public class AdminAddGame extends BaseServerResource {
     }
 
     @Post
-    public Representation setUserHometown(Representation entity) throws Exception {
+    public Representation setGameData(Representation entity) throws Exception {
 
         Integer retValue = new Integer("1");
 
