@@ -35,7 +35,13 @@
         <jdbc.driverClassName>com.mysql.jdbc.Driver</jdbc.driverClassName>
         <jdbc.url>jdbc:mysql://faap-server.cv5kxrel3z7x.us-east-1.rds.amazonaws.com:3306/gameaday</jdbc.url>
         <jdbc.username>lvl6admin</jdbc.username>
-        <jdbc.password>faapserver</jdbc.password>    
+        <jdbc.password>faapserver</jdbc.password>   
+        <ec2.instance.size>m1.small</ec2.instance.size>
+		<ec2.instance.count.minimum>1</ec2.instance.count.minimum>
+		<ec2.instance.count.maximum>4</ec2.instance.count.maximum>
+		<ec2.tomcat.memory>1400m</ec2.tomcat.memory>
+		<maven.build.timestamp.format>yyyy-MM-dd-HH-mm-ss</maven.build.timestamp.format>
+		<beanstalk.versionLabel>${maven.build.timestamp}</beanstalk.versionLabel> 
     </properties>
 
 
@@ -183,6 +189,7 @@
                     <environmentName>${application.release.name}-${maven.build.timestamp}</environmentName>
                     <defaultEnvironmentName>default</defaultEnvironmentName>
                     <cnamePrefix>${application.release.name}-${maven.build.timestamp}</cnamePrefix>
+                    <!-- <region>us-west-2</region> -->
                     <timeoutMins>80</timeoutMins>
                     <s3Bucket>prodWars</s3Bucket>
                     <s3Key>${application.release.name}/${application.release.name}-${maven.build.timestamp}.war</s3Key>
@@ -196,7 +203,7 @@
                         <optionSetting>
                             <namespace>aws:elasticbeanstalk:application</namespace>
                             <optionName>Application Healthcheck URL</optionName>
-                            <value>/health</value>
+                            <value>/health.html</value>
                         </optionSetting>
                         <optionSetting>
                             <namespace>aws:elasticbeanstalk:container:tomcat:jvmoptions</namespace>
@@ -211,7 +218,7 @@
                         <optionSetting>
                             <namespace>aws:elasticbeanstalk:container:tomcat:jvmoptions</namespace>
                             <optionName>XX:MaxPermSize</optionName>
-                            <value>512m</value>
+                            <value>256m</value>
                         </optionSetting>
                         <optionSetting>
                             <namespace>aws:autoscaling:launchconfiguration</namespace>
@@ -231,7 +238,7 @@
                         <optionSetting>
                             <namespace>aws:autoscaling:asg</namespace>
                             <optionName>Availability Zones</optionName>
-                            <value>Any 2</value>
+                            <value>Any 1</value>
                         </optionSetting>
                         <optionSetting>
                             <namespace>aws:autoscaling:trigger</namespace>
@@ -241,12 +248,12 @@
                         <optionSetting>
                             <namespace>aws:autoscaling:trigger</namespace>
                             <optionName>UpperThreshold</optionName>
-                            <value>12000000</value>
+                            <value>10000000</value>
                         </optionSetting>
                         <optionSetting>
                             <namespace>aws:autoscaling:trigger</namespace>
                             <optionName>LowerThreshold</optionName>
-                            <value>4000000</value>
+                            <value>2000000</value>
                         </optionSetting>
                         <optionSetting>
                             <namespace>aws:elb:loadbalancer</namespace>
